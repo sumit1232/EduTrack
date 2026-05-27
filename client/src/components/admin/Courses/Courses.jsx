@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { BookOpen, Plus, Search, Trash2, Pencil } from "lucide-react";
 
 const Courses = () => {
-  const API = "http://localhost:3000/api/course";
+  const API = "https://edutrack-o28e.onrender.com/api/course";
   const navigate = useNavigate();
 
   const [courses, setCourses] = useState([]);

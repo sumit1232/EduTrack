@@ -3,7 +3,7 @@ import axios from "axios";
 import { Bell, CheckCircle2, AlertCircle, Info } from "lucide-react";
 
 const Notifications = () => {
-  const API = "http://localhost:3000/api";
+  const API = "https://edutrack-o28e.onrender.com/api";
 
   const [notifications, setNotifications] = useState([]);
   const [loading, setLoading] = useState(false);

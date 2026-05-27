@@ -3,7 +3,7 @@ import axios from "axios";
 import { BookOpen, Search, PlayCircle } from "lucide-react";
 
 const MyCourses = () => {
-  const API = "http://localhost:3000/api";
+  const API = "https://edutrack-o28e.onrender.com/api";
 
   const [courses, setCourses] = useState([]);
   const [search, setSearch] = useState("");

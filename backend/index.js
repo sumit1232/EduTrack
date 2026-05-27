@@ -10,6 +10,10 @@ const fileUpload = require("express-fileupload");
 
 app.use(
   cors({
+      origin: [
+      "https://edu-track-seven-opal.vercel.app",
+      "https://edu-track-okp5cy01s-sumit1232s-projects.vercel.app",
+    ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })

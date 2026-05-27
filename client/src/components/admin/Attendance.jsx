@@ -15,7 +15,7 @@ import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 
 const Attendance = () => {
-  const API = "http://localhost:3000/api";
+  const API = "https://edutrack-o28e.onrender.com/api";
 
   const token = localStorage.getItem("token");
 

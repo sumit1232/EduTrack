@@ -14,7 +14,7 @@ import {
 import { useNavigate } from "react-router-dom";
 
 const AdminLogin = () => {
-  const API = "http://localhost:3000/api/users";
+  const API = "https://edutrack-o28e.onrender.com/api/users";
 
   const navigate = useNavigate();
 

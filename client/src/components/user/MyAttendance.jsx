@@ -3,7 +3,7 @@ import axios from "axios";
 import { CalendarDays, CheckCircle, XCircle, Clock } from "lucide-react";
 
 const MyAttendance = () => {
-  const API = "http://localhost:3000/api";
+  const API = "https://edutrack-o28e.onrender.com/api";
 
   const [attendance, setAttendance] = useState([]);
   const [loading, setLoading] = useState(false);

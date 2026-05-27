@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 
 const AddCourses = () => {
-  const API = "http://localhost:3000/api/course/add";
+  const API = "https://edutrack-o28e.onrender.com/api/course/add";
 
   const navigate = useNavigate();
 

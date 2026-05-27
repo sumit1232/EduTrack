@@ -3,7 +3,7 @@ import axios from "axios";
 import { Bell, Trash2, CheckCheck } from "lucide-react";
 
 const AdminNotifications = () => {
-  const API = "http://localhost:3000/api/admin";
+  const API = "https://edutrack-o28e.onrender.com/api/admin";
   const token = localStorage.getItem("token");
 
   const [notifications, setNotifications] = useState([]);

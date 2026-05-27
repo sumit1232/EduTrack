@@ -15,7 +15,7 @@ import {
 
 const Register = () => {
   const navigate = useNavigate();
-  const API = "http://localhost:3000/api/users";
+  const API = "https://edutrack-o28e.onrender.com/api/users";
 
   const [showPassword, setShowPassword] = useState(false);
 

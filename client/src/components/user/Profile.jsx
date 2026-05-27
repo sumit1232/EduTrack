@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 
 const Profile = () => {
-  const API = "http://localhost:3000/api";
+  const API = "https://edutrack-o28e.onrender.com/api";
 
   const [user, setUser] = useState({});
   const [editMode, setEditMode] = useState(false);
