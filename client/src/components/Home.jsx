@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import {
   Users,
   UserCheck,
@@ -7,6 +9,11 @@ import {
   ClipboardList,
   Bell,
   ArrowRight,
+  ShieldCheck,
+  User,
+  Copy,
+  LogIn,
+  UserPlus,
 } from "lucide-react";
 
 const Home = () => {
@@ -60,8 +67,31 @@ const Home = () => {
     },
   ];
 
+  const credentials = [
+    {
+      role: "Admin Login",
+      email: "adminsumit2525@gmail.com",
+      password: "admin@123",
+      icon: <ShieldCheck size={28} />,
+      color: "from-indigo-500 to-indigo-700",
+    },
+    {
+      role: "Student Login",
+      email: "sumitjadav2525@gmail.com",
+      password: "sumit@11",
+      icon: <User size={28} />,
+      color: "from-green-500 to-green-700",
+    },
+  ];
+
+  const copyText = (text) => {
+    navigator.clipboard.writeText(text);
+    alert("Copied!");
+  };
+
   return (
     <div className="min-h-screen bg-gray-100">
+      {/* HERO */}
       <section className="bg-gradient-to-r from-indigo-600 to-blue-500 text-white">
         <div className="max-w-7xl mx-auto px-6 py-20">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
@@ -75,15 +105,39 @@ const Home = () => {
                 dashboard.
               </p>
 
-              <div className="flex gap-4 flex-wrap">
-                <button className="bg-white text-indigo-600 px-6 py-3 rounded-xl font-semibold hover:bg-gray-100 transition duration-300 flex items-center gap-2">
-                  Get Started
-                  <ArrowRight size={18} />
-                </button>
+              {/* LOGIN BUTTONS */}
+              <div className="grid grid-cols-2 gap-4 max-w-xl">
+                <Link
+                  to="/login"
+                  className="bg-white text-indigo-600 px-6 py-3 rounded-xl font-semibold hover:bg-gray-100 transition duration-300 flex items-center justify-center gap-2"
+                >
+                  <LogIn size={18} />
+                  Student Login
+                </Link>
 
-                <button className="border border-white px-6 py-3 rounded-xl font-semibold hover:bg-white hover:text-indigo-600 transition duration-300">
-                  Learn More
-                </button>
+                <Link
+                  to="/register"
+                  className="border border-white px-6 py-3 rounded-xl font-semibold hover:bg-white hover:text-indigo-600 transition duration-300 flex items-center justify-center gap-2"
+                >
+                  <UserPlus size={18} />
+                  Student Register
+                </Link>
+
+                <Link
+                  to="/adminlogin"
+                  className="bg-black text-white px-6 py-3 rounded-xl font-semibold hover:bg-gray-800 transition duration-300 flex items-center justify-center gap-2"
+                >
+                  <ShieldCheck size={18} />
+                  Admin Login
+                </Link>
+
+                <Link
+                  to="/adminregister"
+                  className="bg-white text-black px-6 py-3 rounded-xl font-semibold hover:bg-gray-100 transition duration-300 flex items-center justify-center gap-2"
+                >
+                  <UserPlus size={18} />
+                  Admin Register
+                </Link>
               </div>
             </div>
 
@@ -98,7 +152,85 @@ const Home = () => {
         </div>
       </section>
 
+      {/* LOGIN CARDS */}
       <section className="max-w-7xl mx-auto px-6 py-16">
+
+        {/* INTERVIEWER MESSAGE */}
+        <div className="bg-yellow-100 border border-yellow-300 text-yellow-800 px-6 py-5 rounded-2xl mb-12 text-center shadow-sm">
+          <h2 className="text-2xl font-bold mb-2">
+            Hey Interviewer 👋
+          </h2>
+
+          <p className="text-sm md:text-base">
+            Please check the demo credentials below to explore both the Admin
+            and Student dashboards of EduTrack.
+          </p>
+        </div>
+
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-gray-800">
+            Demo Login Credentials
+          </h2>
+
+          <p className="text-gray-500 mt-3">
+            Use these accounts to test all features and dashboards.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8">
+          {credentials.map((item, index) => (
+            <div
+              key={index}
+              className={`bg-gradient-to-r ${item.color} text-white rounded-3xl p-8 shadow-xl`}
+            >
+              <div className="flex items-center justify-between mb-6">
+                <div className="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center">
+                  {item.icon}
+                </div>
+
+                <span className="bg-white/20 px-4 py-1 rounded-full text-sm">
+                  Demo Access
+                </span>
+              </div>
+
+              <h3 className="text-2xl font-bold mb-6">{item.role}</h3>
+
+              <div className="space-y-4">
+                <div className="bg-white/10 rounded-xl p-4 flex items-center justify-between">
+                  <div>
+                    <p className="text-sm text-gray-200">Email</p>
+                    <p className="font-semibold">{item.email}</p>
+                  </div>
+
+                  <button
+                    onClick={() => copyText(item.email)}
+                    className="hover:scale-110 transition"
+                  >
+                    <Copy size={18} />
+                  </button>
+                </div>
+
+                <div className="bg-white/10 rounded-xl p-4 flex items-center justify-between">
+                  <div>
+                    <p className="text-sm text-gray-200">Password</p>
+                    <p className="font-semibold">{item.password}</p>
+                  </div>
+
+                  <button
+                    onClick={() => copyText(item.password)}
+                    className="hover:scale-110 transition"
+                  >
+                    <Copy size={18} />
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* STATS */}
+      <section className="max-w-7xl mx-auto px-6 py-10">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {stats.map((item, index) => (
             <div
@@ -121,6 +253,7 @@ const Home = () => {
         </div>
       </section>
 
+      {/* FEATURES */}
       <section className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-14">
@@ -154,6 +287,7 @@ const Home = () => {
         </div>
       </section>
 
+      {/* CTA */}
       <section className="py-20 bg-indigo-600 text-white">
         <div className="max-w-4xl mx-auto text-center px-6">
           <h2 className="text-4xl font-bold mb-6">
@@ -164,8 +298,9 @@ const Home = () => {
             Build a smarter education system with modern tools and analytics.
           </p>
 
-          <button className="bg-white text-indigo-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition duration-300">
+          <button className="bg-white text-indigo-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition duration-300 flex items-center gap-2 mx-auto">
             Explore Dashboard
+            <ArrowRight size={18} />
           </button>
         </div>
       </section>
